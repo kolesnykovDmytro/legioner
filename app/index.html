@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+
+	<title>Title</title>
+	<meta name="description" content="">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<meta property="og:image" content="path/to/image.jpg">
+	<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
+
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#000">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#000">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#000">
+
+	<link rel="stylesheet" href="css/main.min.css">
+
+</head>
+
+<body>
+
+	<div class="my-container">
+
+    <!-- Component -->
+    <div class="navbar-component">
+      <!-- Class `area` is a container -->
+      <div class="navbar area">
+        <!-- Logo -->
+        <a href="#" class="brand">Brand</a>
+        <!-- List of links -->
+        <nav role="navigation" id="navigation" class="list">
+          <a href="#" class="item -link">Home</a>
+          <a href="#" class="item -link">Articles</a>
+          <a href="#" class="item -link">Projects</a>
+          <a href="#" class="item -link">Resources</a>
+          <a href="#" class="item -link">About me</a>
+          <span class="item"><i class="fa fa-search"></i></span>
+        </nav>
+        <!-- Button to toggle the display menu  -->
+        <button data-collapse data-target="#navigation" class="toggle">
+          <!-- Hamburger icon -->
+          <span class="icon"></span>
+        </button>
+      </div>
+			</div>
+
+			<section class="one"></section>
+			<section class="one"></section>
+			<section class="one"></section>
+			<section class="one"></section>
+			<section class="one"></section>
+
+	</div>
+
+	<script src="js/scripts.min.js"></script>
+
+
+<script>
+
+(function() {
+
+// Definition of caller element
+var getTriggerElement = function(el) {
+	var isCollapse = el.getAttribute('data-collapse');
+	if (isCollapse !== null) {
+		return el;
+	} else {
+		var isParentCollapse = el.parentNode.getAttribute('data-collapse');
+		return (isParentCollapse !== null) ? el.parentNode : undefined;
+	}
+};
+
+// A handler for click on toggle button
+var collapseClickHandler = function(event) {
+	var triggerEl = getTriggerElement(event.target);
+	// If trigger element does not exist
+	if (triggerEl === undefined) {
+		event.preventDefault();
+		return false;
+	}
+
+	// If the target element exists
+	var targetEl = document.querySelector(triggerEl.getAttribute('data-target'));
+	if (targetEl) {
+		triggerEl.classList.toggle('-active');
+		targetEl.classList.toggle('-on');
+	}
+};
+
+// Delegated event
+document.addEventListener('click', collapseClickHandler, false);
+
+})(document, window);
+
+</script>
+
+</body>
+</html>
